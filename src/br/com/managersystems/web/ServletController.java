@@ -22,25 +22,30 @@ public class ServletController extends HttpServlet{
 
 		Connection conn = new ConnectionPool().getConnection();
 
-		String adiciona = req.getParameter("adiciona");
-		String service = req.getParameter("service");
+		String servlet = req.getParameter("servlet");
+		String agent = req.getParameter("agent");
+		String action = req.getParameter("action");
 
-		if(adiciona == null|| service == null){
+		if(servlet == null|| agent == null){
 			throw new IllegalArgumentException("Faltou algum parametro!");
 		}
 
-		String nomeDaClasseAdiciona = "br.com.paripassu.core.web." + adiciona;
-		String nomeDaClasseService = "br.com.paripassu.core.services.impl." + service;
+		String servletName = "br.com.managersystems.web." + servlet;
+		String agentName = "br.com.managersystems.services.impl." + agent;
 
 		try {
 			PrintWriter writer = resp.getWriter();
-			Class classAdiciona = Class.forName(nomeDaClasseAdiciona);
-			Popup instancia = (Popup) classAdiciona.newInstance();
+			Class servletClass = Class.forName(servletName);
+			Popup instance = (Popup) servletClass.newInstance();
 
-			Class classsService = Class.forName(nomeDaClasseService);
-			Service services = (Service) classsService.newInstance();
+			Class agentClass = Class.forName(agentName);
+			Service services = (Service) agentClass.newInstance();
 
-			services.insert(conn, instancia.popup(req, resp));
+			if(action.equals("insert")){
+				services.insert(conn, instance.popup(req, resp));
+			} else if (action.equals("list")){
+				instance.list(services.list(conn), req, resp);
+			}
 
 			writer.print("<html><body>Foi inserido com sucesso!</body></html>");
 		} catch (Exception e) {
