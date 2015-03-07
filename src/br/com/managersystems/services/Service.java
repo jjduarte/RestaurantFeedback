@@ -12,4 +12,6 @@ public interface Service <T>{
 
 	List<T> list(Connection conn) throws Exception;
 
+
+
 }

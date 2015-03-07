@@ -62,7 +62,7 @@ public class ProductDaoImpl implements ProductDao{
 					String description = rs.getString("description");
 					boolean available = rs.getString("available").equalsIgnoreCase("T") ? true : false;
 					String photo = rs.getString("photo");
-					Restaurant restaurant = new Restaurant(rs.getInt("restaurant"));
+					Restaurant restaurant = new Restaurant(rs.getInt("id_restaurant"));
 					productsList.add(new Product(idProduct, nome, description, available, photo, restaurant));
 				}
 			}
@@ -82,7 +82,7 @@ public class ProductDaoImpl implements ProductDao{
 					String description = rs.getString("description");
 					boolean available = rs.getString("available").equalsIgnoreCase("T") ? true : false;
 					String photo = rs.getString("photo");
-					Restaurant restaurant = new Restaurant(rs.getInt("restaurant"));
+					Restaurant restaurant = new Restaurant(rs.getInt("id_restaurant"));
 					product = new Product(idProduct, nome, description, available, photo, restaurant);
 				}
 			}
@@ -102,7 +102,7 @@ public class ProductDaoImpl implements ProductDao{
 					String description = rs.getString("description");
 					boolean available = rs.getString("available").equalsIgnoreCase("T") ? true : false;
 					String photo = rs.getString("photo");
-					Restaurant restaurant = new Restaurant(rs.getInt("restaurant"));
+					Restaurant restaurant = new Restaurant(rs.getInt("id_restaurant"));
 					productsList.add(new Product(idProduct, nome, description, available, photo, restaurant));
 				}
 			}

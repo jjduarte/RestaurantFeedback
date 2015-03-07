@@ -66,7 +66,14 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public List<Product> list(Connection conn) throws Exception {
 		ProductDao customerDaoImpl = new ProductDaoImpl();
-		return customerDaoImpl.list(conn);
+		List<Product> productList = customerDaoImpl.list(conn);
+		RestaurantService restaurantService = new RestaurantServiceImpl();
+
+		for (Product product : productList) {
+			product.setRestaurant(restaurantService.findById(conn, product.getRestaurant().getId()));
+		}
+
+		return productList;
 	}
 
 	@Override

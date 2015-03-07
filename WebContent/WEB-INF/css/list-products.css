@@ -1,0 +1,6 @@
+@CHARSET "UTF-8";
+
+.panel-heading img {
+   height: 100%;
+   width: 100%;
+}
