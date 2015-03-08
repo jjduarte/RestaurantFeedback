@@ -33,6 +33,7 @@
 /Users/jduarte/Documents/workspace/RestaurantFeedback/src/br/com/managersystems/dao/ConnectionPool.java
 /Users/jduarte/Documents/workspace/RestaurantFeedback/src/br/com/managersystems/entity/CustomerRating.java
 /Users/jduarte/Documents/workspace/RestaurantFeedback/src/br/com/managersystems/exceptions/RatingCodesException.java
+/Users/jduarte/Documents/workspace/RestaurantFeedback/src/br/com/managersystems/web/ProductController.java
 /Users/jduarte/Documents/workspace/RestaurantFeedback/src/br/com/managersystems/exceptions/CustomerException.java
 /Users/jduarte/Documents/workspace/RestaurantFeedback/src/br/com/managersystems/dao/CustomerRatingDao.java
 /Users/jduarte/Documents/workspace/RestaurantFeedback/src/br/com/managersystems/dao/impl/CustomerRatingDaoImpl.java
